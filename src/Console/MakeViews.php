@@ -1,6 +1,6 @@
 <?php namespace DevHouse\Console;
 
-use DevHouse\FileManagerTrait;
+use DevHouse\Helpers\FileManagerTrait;
 use Illuminate\Console\Command;
 
 class MakeViews extends Command
