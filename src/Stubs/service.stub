@@ -1,0 +1,14 @@
+<?php namespace App\Services;
+
+use DevHouse\Pattern\BaseService;
+use App\Repositories\{{model}}\{{model}}Repository;
+
+class {{model}}Service extends BaseService
+{
+
+    public function __construct()
+    {
+        $this->mainRepo = new {{model}}Repository;
+        parent::__construct();
+    }
+}

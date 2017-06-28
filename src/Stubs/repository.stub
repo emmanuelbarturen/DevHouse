@@ -1,0 +1,13 @@
+<?php namespace App\Repositories\{{name}};
+
+use DevHouse\Pattern\BaseRepository;
+
+class {{name}}Repository extends BaseRepository
+{
+
+    public function __construct()
+    {
+        $this->model = new {{name}}();
+        parent::__construct();
+    }
+}
