@@ -30,19 +30,20 @@ abstract class BaseRepository
      */
     public function getTrashed($rowsByPage = null)
     {
-        if($rowsByPage){
+        if ($rowsByPage) {
             return $this->model->onlyTrashed()->paginate($rowsByPage);
-        }else{
+        } else {
             return $this->model->onlyTrashed()->get();
         }
     }
+
     /**
      * @param $n
      * @param string $orderBy
      * @param array $with
      * @return mixed
      */
-    public function paginate($n, $orderBy = 'ASC',$with = [])
+    public function paginate($n, $orderBy = 'ASC', $with = [])
     {
         return $this->model->with($with)->orderBy('id', $orderBy)->paginate($n);
     }
@@ -87,6 +88,7 @@ abstract class BaseRepository
     {
         return $this->model->withTrashed()->where($column, $value)->first();
     }
+
     /**
      * @param $column
      * @param $value
@@ -121,15 +123,14 @@ abstract class BaseRepository
 
     /**
      * Update Someone
-     * @param $id
-     * @param $inputs
+     * @param Model $model
+     * @param array $inputs
      * @return mixed
      */
-    public function update($id, array $inputs)
+    public function update(Model $model, array $inputs): bool
     {
-        $user = $this->model->find($id);
-        $user->fill($inputs);
-        return $user->save();
+        $model->fill($inputs);
+        return $model->save();
     }
 
 

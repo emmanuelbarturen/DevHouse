@@ -57,7 +57,8 @@ class RepositoryPattern extends Command
 
         // Controller \\
         $controllerName = $manager . '/' . str_plural(ucfirst($name)) . 'Controller';
-        $this->call('make:controller', ['name' => $controllerName, '--resource' => 'default']);
+        $this->call('make:controller',
+            ['name' => $controllerName, '--resource' => 'default', '--model' => ucfirst($name)]);
 
         // Views \\
         $this->call('DevHouse:views', ['modelName' => $serviceName, '--manager' => $manager]);
